@@ -1,3 +1,26 @@
 <resources>
-    <string name="app_name">Comp1786_CW1_T1-Simple_Calculator</string>
+    <string name="app_name">Simple Calculator</string>
+
+    <!--    Others-->
+    <string name="enter_value">Enter Value</string>
+
+    <!--    Number buttons-->
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="zero">0</string>
+
+    <!--    Operation buttons-->
+    <string name="addition">+</string>
+    <string name="subtraction">-</string>
+    <string name="multiplication">x</string>
+    <string name="division">/</string>
+    <string name="equal">=</string>
+    <string name="clear">C</string>
 </resources>
