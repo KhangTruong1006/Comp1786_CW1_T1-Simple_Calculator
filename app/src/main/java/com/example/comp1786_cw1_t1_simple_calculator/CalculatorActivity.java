@@ -14,20 +14,20 @@ import androidx.core.view.WindowInsetsCompat;
 public class CalculatorActivity extends AppCompatActivity {
 
     private EditText numberInput;
-    private String result;
-    private String operation;
     private long tempNum;
     private int operationCount;
+    private int operationButtonId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_calculator);
-        enableButton(R.id.btn_addition, false);
+//        enableButton(R.id.btn_addition, false);
         numberInput = (EditText)findViewById(R.id.number_input);
-        operation = "";
+
         operationCount = 0;
+        operationButtonId =0;
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -36,14 +36,33 @@ public class CalculatorActivity extends AppCompatActivity {
         });
     }
     public void getNumberFromClickedButton(View view){
-        enableButton(R.id.btn_addition,true);
+//        enableButton(R.id.btn_addition,true);
         Button clickedButton = (Button) view;
         String num = clickedButton.getText().toString();
         numberInput.append(num);
     }
 
     public void handleAdditionButtonClick(View view){
-        operation = getResourceUniqueName(R.string.addition);
+        operationButtonId = R.id.btn_addition;
+        handleMultipleCalculation(view);
+    }
+
+    public void handleSubtractionButtonClick(View view){
+        operationButtonId = R.id.btn_substraction;
+        handleMultipleCalculation(view);
+    }
+
+    public void handleMultiplicationButtonClick(View view){
+        operationButtonId = R.id.btn_multiplication;
+        handleMultipleCalculation(view);
+    }
+
+    public void handleDivisionButtonClick(View view){
+        operationButtonId = R.id.btn_division;
+        handleMultipleCalculation(view);
+    }
+
+    private void handleMultipleCalculation(View view){
         if(operationCount > 0){
             calculateResult(view);
         }
@@ -54,35 +73,46 @@ public class CalculatorActivity extends AppCompatActivity {
 
     public void calculateResult(View view){
         long num = getNumberFromInputField();
-        result= calculate(tempNum,num,operation);
+        String result = calculate(tempNum,num,operationButtonId);
         numberInput.setText(result);
     }
     public void clickClearButton(View view){
-        operation = "";
         tempNum = 0;
         operationCount = 0;
+        operationButtonId = 0;
         clearInputField();
     }
 
-    private String calculate(long num1, long num2, String operation){
-        long methodResult;
-        if (operation.equals("addition")){
-            methodResult = num1 + num2;
-            result = String.format("%d",methodResult);
+    private String calculate(long num1, long num2, int operationButtonId){
+        long result;
+        if (operationButtonId == R.id.btn_addition){
+            result = num1 + num2;
+        }
+
+        else if (operationButtonId == R.id.btn_substraction) {
+            result = num1 - num2;
+        }
+
+        else if (operationButtonId == R.id.btn_multiplication) {
+            result = num1 * num2;
+        }
+
+        else if (operationButtonId == R.id.btn_division) {
+            if(num2 == 0){
+                return "Error: Division by Zero";
+            }
+            result = num1 / num2;
         }
 
         else{
-            result = "Error";
+            return "Error";
         }
-        return result;
+
+        return String.format("%s",result);
     }
 //Helper functions
     private void clearInputField(){
         numberInput.setText("");
-    }
-
-    private String getResourceUniqueName(int value){
-        return getResources().getResourceEntryName(value);
     }
 
     private long getNumberFromInputField(){
