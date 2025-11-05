@@ -23,7 +23,6 @@ public class CalculatorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_calculator);
-//        enableButton(R.id.btn_addition, false);
         numberInput = (EditText)findViewById(R.id.number_input);
 
         operationCount = 0;
@@ -36,7 +35,6 @@ public class CalculatorActivity extends AppCompatActivity {
         });
     }
     public void getNumberFromClickedButton(View view){
-//        enableButton(R.id.btn_addition,true);
         Button clickedButton = (Button) view;
         String num = clickedButton.getText().toString();
         numberInput.append(num);
@@ -116,11 +114,10 @@ public class CalculatorActivity extends AppCompatActivity {
     }
 
     private long getNumberFromInputField(){
-        return Long.parseLong(numberInput.getText().toString());
-    }
-
-    private void enableButton(int id, boolean status){
-        Button button = findViewById(id);
-        button.setEnabled(status);
+        String numStr = numberInput.getText().toString();
+        if(numStr.isEmpty()){
+            return 0;
+        }
+        return Long.parseLong(numStr);
     }
 }
