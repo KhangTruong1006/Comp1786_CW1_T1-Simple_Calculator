@@ -15,6 +15,7 @@ public class CalculatorActivity extends AppCompatActivity {
 
     private EditText numberInput;
     private long tempNum;
+    private boolean finalResult;
     private int operationCount;
     private int operationButtonId;
 
@@ -27,6 +28,7 @@ public class CalculatorActivity extends AppCompatActivity {
 
         operationCount = 0;
         operationButtonId =0;
+        finalResult = false;
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -35,6 +37,9 @@ public class CalculatorActivity extends AppCompatActivity {
         });
     }
     public void getNumberFromClickedButton(View view){
+        if(finalResult){
+            clickClearButton(view);
+        }
         Button clickedButton = (Button) view;
         String num = clickedButton.getText().toString();
         numberInput.append(num);
@@ -69,7 +74,7 @@ public class CalculatorActivity extends AppCompatActivity {
         clearInputField();
     }
 
-    public void calculateResult(View view){
+    private void calculateResult(View view){
         long num = getNumberFromInputField();
         String result = calculate(tempNum,num,operationButtonId);
         numberInput.setText(result);
@@ -78,7 +83,13 @@ public class CalculatorActivity extends AppCompatActivity {
         tempNum = 0;
         operationCount = 0;
         operationButtonId = 0;
+        finalResult = false;
         clearInputField();
+    }
+
+    public void clickEqualButton(View view){
+        calculateResult(view);
+        finalResult = true;
     }
 
     private String calculate(long num1, long num2, int operationButtonId){
