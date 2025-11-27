@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class CalculatorActivity extends AppCompatActivity {
 
     private EditText numberInput;
-    private long tempNum;
+    private double tempNum;
     private boolean finalResult;
     private int operationCount;
     private int operationButtonId;
@@ -75,7 +75,7 @@ public class CalculatorActivity extends AppCompatActivity {
     }
 
     private void calculateResult(View view){
-        long num = getNumberFromInputField();
+        double num = getNumberFromInputField();
         String result = calculate(tempNum,num,operationButtonId);
         numberInput.setText(result);
     }
@@ -92,8 +92,8 @@ public class CalculatorActivity extends AppCompatActivity {
         finalResult = true;
     }
 
-    private String calculate(long num1, long num2, int operationButtonId){
-        long result;
+    private String calculate(double num1, double num2, int operationButtonId){
+        double result;
         if (operationButtonId == R.id.btn_addition){
             result = num1 + num2;
         }
@@ -117,18 +117,18 @@ public class CalculatorActivity extends AppCompatActivity {
             return "Error";
         }
 
-        return String.format("%s",result);
+        return String.format("%.2s",result);
     }
 //Helper functions
     private void clearInputField(){
         numberInput.setText("");
     }
 
-    private long getNumberFromInputField(){
+    private double getNumberFromInputField(){
         String numStr = numberInput.getText().toString();
         if(numStr.isEmpty()){
             return 0;
         }
-        return Long.parseLong(numStr);
+        return Double.parseDouble(numStr);
     }
 }
