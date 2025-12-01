@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class CalculatorActivity extends AppCompatActivity {
 
+    private TextView tvOperation;
     private EditText numberInput;
     private long tempNum;
     private boolean finalResult;
@@ -25,6 +27,7 @@ public class CalculatorActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_calculator);
         numberInput = (EditText)findViewById(R.id.number_input);
+        tvOperation = findViewById(R.id.tv_operation);
 
         clickClearButton(null);
 
@@ -44,23 +47,27 @@ public class CalculatorActivity extends AppCompatActivity {
     }
 
     public void handleAdditionButtonClick(View view){
+        setTextView(R.string.addition);
         handleMultipleCalculation(view);
         operationButtonId = R.id.btn_addition;
     }
 
     public void handleSubtractionButtonClick(View view){
+        setTextView(R.string.subtraction);
         handleMultipleCalculation(view);
         operationButtonId = R.id.btn_substraction;
 
     }
 
     public void handleMultiplicationButtonClick(View view){
+        setTextView(R.string.multiplication);
         handleMultipleCalculation(view);
         operationButtonId = R.id.btn_multiplication;
 
     }
 
     public void handleDivisionButtonClick(View view){
+        setTextView(R.string.division);
         handleMultipleCalculation(view);
         operationButtonId = R.id.btn_division;
 
@@ -85,6 +92,7 @@ public class CalculatorActivity extends AppCompatActivity {
         operationCount = 0;
         operationButtonId = 0;
         finalResult = false;
+        tvOperation.setText("");
         clearInputField();
     }
 
@@ -123,6 +131,10 @@ public class CalculatorActivity extends AppCompatActivity {
     //Helper functions
     private void clearInputField(){
         numberInput.setText("");
+    }
+
+    private void setTextView(int text){
+        tvOperation.setText(text);
     }
 
     private long getNumberFromInputField(){
