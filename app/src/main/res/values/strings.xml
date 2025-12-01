@@ -22,5 +22,5 @@
     <string name="multiplication">x</string>
     <string name="division">/</string>
     <string name="equal">=</string>
-    <string name="clear">C</string>
+    <string name="clear">AC</string>
 </resources>
