@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".CalculatorActivity"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="71dp">
+    tools:layout_editor_absoluteY="56dp">
 
     <EditText
         android:id="@+id/number_input"
@@ -26,186 +26,211 @@
 
     <Button
         android:id="@+id/btn_seven"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="16dp"
         android:onClick="getNumberFromClickedButton"
         android:text="@string/seven"
+        app:layout_constraintEnd_toStartOf="@+id/btn_eight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/number_input" />
 
     <Button
         android:id="@+id/btn_eight"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="16dp"
         android:onClick="getNumberFromClickedButton"
         android:text="@string/eight"
+        app:layout_constraintEnd_toStartOf="@+id/btn_nine"
         app:layout_constraintStart_toEndOf="@+id/btn_seven"
         app:layout_constraintTop_toBottomOf="@+id/number_input" />
 
     <Button
         android:id="@+id/btn_nine"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="25dp"
         android:onClick="getNumberFromClickedButton"
         android:text="@string/nine"
+        app:layout_constraintEnd_toStartOf="@+id/btn_division"
         app:layout_constraintStart_toEndOf="@+id/btn_eight"
         app:layout_constraintTop_toBottomOf="@+id/number_input" />
 
     <Button
         android:id="@+id/btn_division"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="34dp"
         android:onClick="handleDivisionButtonClick"
         android:text="@string/division"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toEndOf="@+id/btn_nine"
         app:layout_constraintTop_toBottomOf="@+id/number_input" />
 
     <Button
         android:id="@+id/btn_multiplication"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
-        android:layout_marginStart="25dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="34dp"
         android:onClick="handleMultiplicationButtonClick"
         android:text="@string/multiplication"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btn_six"
         app:layout_constraintTop_toBottomOf="@+id/btn_division" />
 
     <Button
         android:id="@+id/btn_substraction"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
-        android:layout_marginStart="25dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="34dp"
         android:onClick="handleSubtractionButtonClick"
         android:text="@string/subtraction"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btn_three"
         app:layout_constraintTop_toBottomOf="@+id/btn_multiplication" />
 
     <Button
         android:id="@+id/btn_addition"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="34dp"
         android:onClick="handleAdditionButtonClick"
         android:text="@string/addition"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btn_equal"
         app:layout_constraintTop_toBottomOf="@+id/btn_substraction" />
 
     <Button
         android:id="@+id/btn_four"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:onClick="getNumberFromClickedButton"
         android:text="@string/four"
+        app:layout_constraintEnd_toStartOf="@+id/btn_five"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_seven" />
 
     <Button
         android:id="@+id/btn_five"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:onClick="getNumberFromClickedButton"
         android:text="@string/five"
+        app:layout_constraintEnd_toStartOf="@+id/btn_six"
         app:layout_constraintStart_toEndOf="@+id/btn_four"
         app:layout_constraintTop_toBottomOf="@+id/btn_eight" />
 
     <Button
         android:id="@+id/btn_six"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
         android:onClick="getNumberFromClickedButton"
         android:text="@string/six"
+        app:layout_constraintEnd_toStartOf="@+id/btn_multiplication"
         app:layout_constraintStart_toEndOf="@+id/btn_five"
         app:layout_constraintTop_toBottomOf="@+id/btn_nine" />
 
     <Button
         android:id="@+id/btn_one"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:onClick="getNumberFromClickedButton"
         android:text="@string/one"
+        app:layout_constraintEnd_toStartOf="@+id/btn_two"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_four" />
 
     <Button
         android:id="@+id/btn_two"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:onClick="getNumberFromClickedButton"
         android:text="@string/two"
+        app:layout_constraintEnd_toStartOf="@+id/btn_three"
         app:layout_constraintStart_toEndOf="@+id/btn_one"
         app:layout_constraintTop_toBottomOf="@+id/btn_five" />
 
     <Button
         android:id="@+id/btn_zero"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
         android:onClick="getNumberFromClickedButton"
         android:text="@string/zero"
+        app:layout_constraintEnd_toStartOf="@+id/btn_equal"
         app:layout_constraintStart_toEndOf="@+id/btn_clear"
         app:layout_constraintTop_toBottomOf="@+id/btn_two" />
 
     <Button
         android:id="@+id/btn_equal"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
         android:onClick="clickEqualButton"
         android:text="@string/equal"
+        app:layout_constraintEnd_toStartOf="@+id/btn_addition"
         app:layout_constraintStart_toEndOf="@+id/btn_zero"
         app:layout_constraintTop_toBottomOf="@+id/btn_three" />
 
     <Button
         android:id="@+id/btn_clear"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
         android:onClick="clickClearButton"
         android:text="@string/clear"
+        app:layout_constraintEnd_toStartOf="@+id/btn_zero"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_one" />
 
     <Button
         android:id="@+id/btn_three"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="75dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
         android:onClick="getNumberFromClickedButton"
         android:text="@string/three"
+        app:layout_constraintEnd_toStartOf="@+id/btn_substraction"
         app:layout_constraintStart_toEndOf="@+id/btn_two"
         app:layout_constraintTop_toBottomOf="@+id/btn_six" />
+
+    <TextView
+        android:id="@+id/tv_operation"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_seven"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/number_input"
+        app:layout_constraintVertical_bias="0.25" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
