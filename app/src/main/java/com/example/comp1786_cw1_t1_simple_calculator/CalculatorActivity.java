@@ -86,6 +86,7 @@ public class CalculatorActivity extends AppCompatActivity {
         long num = getNumberFromInputField();
         String result = calculate(tempNum,num);
         numberInput.setText(result);
+        tvOperation.setText("");
     }
     public void clickClearButton(View view){
         tempNum = 0;
